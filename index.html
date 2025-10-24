@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regex для карт</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1 style="margin: 0 0 10px 0;">Regex для карт</h1>
+        <a href="https://t.me/+VR5jG7d0a0w0NDcy" target="_blank" style="text-decoration: none;">
+            <button style="background-color: #0088cc; color: white; border: none; border-radius: 6px; padding: 10px 10px; margin: 10px; font-size: 16px; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                <i class="fab fa-telegram-plane"></i>
+                Вступить в Telegram-группу
+            </button>
+        </a>
+        <div class="header-content">
+            <div class="toggle-container">
+                <div class="toggle-icon" id="toggleExclamation">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye-off">
+                        <path d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49"></path>
+                        <path d="M14.084 14.158a3 3 0 0 1-4.242-4.242"></path>
+                        <path d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143"></path>
+                        <path d="m2 2 20 20"></path>
+                    </svg>
+                </div>
+            </div>
+            <div class="search-container">
+                <input type="text" id="search" placeholder='Результат'>
+                <button class="copy-button">Копировать</button>
+                <button class="clear-button">×</button>
+            </div>
+        </div>
+        <div>
+            <button class="tab-button active" data-tab="t16">Т16</button>
+            <button class="tab-button" data-tab="t165">Т16.5+</button>
+        </div>
+    </header>
+    <div class="theme-toggle">
+        <button class="theme-toggle-button" id="themeToggle">
+            <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="4"></circle>
+                <path d="M12 2v2"></path>
+                <path d="M12 20v2"></path>
+                <path d="m4.93 4.93 1.41 1.41"></path>
+                <path d="m17.66 17.66 1.41 1.41"></path>
+                <path d="M2 12h2"></path>
+                <path d="M20 12h2"></path>
+                <path d="m6.34 17.66-1.41 1.41"></path>
+                <path d="m19.07 4.93-1.41 1.41"></path>
+            </svg>
+            <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+            </svg>
+        </button>
+    </div>
+    <div class="container">
+        <div class="property-search">
+            <input type="text" id="propertySearchInput" placeholder="Поиск по свойствам...">
+        </div>
+        <div class="options-container tab-group" data-tab="t16" id="optionsContainert16" style="display: block;"></div>
+		<div class="options-container tab-group" data-tab="t165" id="optionsContainert165" style="display: none;"></div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
