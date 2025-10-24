@@ -163,9 +163,14 @@ document.addEventListener('DOMContentLoaded', function () {
         document.body.classList.toggle('dark-theme');
     });
 	
-	function reorderOptions() {
+	{ 
+function reorderOptions() {
     const container = document.querySelector(`.options-container[data-tab="${currentTab}"]`);
     if (!container) return;
+
+    // Сохраняем позицию прокрутки и активный элемент
+    const prevScrollTop = container.scrollTop;
+    const active = document.activeElement;
 
     const options = Array.from(container.children).filter(opt => opt.style.display !== 'none');
 
@@ -178,14 +183,21 @@ document.addEventListener('DOMContentLoaded', function () {
         return Number(a.getAttribute('data-index')) - Number(b.getAttribute('data-index'));
     });
 
+    // Переупорядочиваем, не меняя display (чтобы не сбрасывать прокрутку)
     options.forEach(option => container.appendChild(option));
 
-    // Принудительный reflow для flex-контейнера (если нужен)
-    container.style.display = 'none';
+    // Принудительный reflow без смены display (если нужен)
     container.offsetHeight;
-    container.style.display = 'flex';
-}
 
+    // Восстанавливаем прокрутку
+    container.scrollTop = prevScrollTop;
+
+    // Если фокус до операции был внутри контейнера — восстановим его
+    if (active && container.contains(active)) {
+        try { active.focus(); } catch (e) { /* ignore */ }
+    }
+}
+}
 	
     // Функция обновления текста результата
     function updateSearchInput() {
